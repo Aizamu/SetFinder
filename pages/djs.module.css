@@ -1,0 +1,58 @@
+.page { min-height: calc(100vh - 60px); padding: 40px 0 80px; }
+.inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+.header { margin-bottom: 36px; }
+.title { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.sub { font-size: 15px; color: var(--text2); margin-bottom: 24px; }
+
+.search { display: flex; gap: 8px; max-width: 480px; }
+.search input { flex: 1; }
+.searchBtn { padding: 10px 20px; background: var(--accent); color: #000; font-weight: 700; font-size: 14px; border-radius: 6px; white-space: nowrap; transition: opacity 0.15s; }
+.searchBtn:hover { opacity: 0.85; }
+
+.grid { display: flex; flex-direction: column; gap: 10px; }
+
+.djCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+  width: 100%;
+  transition: border-color 0.2s, transform 0.15s;
+  animation: fadeUp 0.3s ease both;
+  cursor: pointer;
+}
+
+.djCard:hover { border-color: var(--border2); transform: translateX(4px); }
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+
+.djInfo { flex: 1; min-width: 0; }
+.djName { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text); }
+.djGenre { font-size: 13px; font-weight: 500; margin-top: 2px; }
+.djOrigin { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+.djArrow { color: var(--text3); font-size: 18px; transition: transform 0.15s, color 0.15s; }
+.djCard:hover .djArrow { transform: translateX(4px); color: var(--accent); }
+
+.loading { display: flex; justify-content: center; padding: 80px 0; }
+.spinner { width: 32px; height: 32px; border: 2px solid var(--border2); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

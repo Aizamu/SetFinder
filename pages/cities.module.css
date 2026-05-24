@@ -1,0 +1,43 @@
+.page { min-height: calc(100vh - 60px); padding: 40px 0 80px; }
+.inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.title { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.sub { font-size: 15px; color: var(--text2); margin-bottom: 36px; }
+
+.stateList { display: flex; flex-direction: column; gap: 0; }
+
+.stateGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.stateName {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.cityRow { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.cityLink {
+  font-size: 14px;
+  color: var(--text2);
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.cityLink:hover {
+  color: var(--accent);
+  border-color: var(--accent-mid);
+}

@@ -1,0 +1,68 @@
+.page { min-height: calc(100vh - 60px); padding: 40px 0 80px; display: flex; align-items: flex-start; justify-content: center; }
+.inner { width: 100%; max-width: 580px; padding: 0 24px; }
+
+.header { text-align: center; margin-bottom: 36px; }
+.badge { display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border: 1px solid var(--accent-mid); border-radius: 99px; margin-bottom: 16px; }
+.title { font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--text); margin-bottom: 12px; letter-spacing: -0.02em; }
+.sub { font-size: 15px; color: var(--text2); line-height: 1.6; }
+
+.form { display: flex; flex-direction: column; gap: 28px; }
+
+.section { display: flex; flex-direction: column; gap: 10px; }
+.sectionLabel { font-size: 13px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em; }
+.selectedCount { color: var(--accent); font-weight: 500; text-transform: none; letter-spacing: 0; }
+
+.emailInput { font-size: 16px; padding: 12px 16px; }
+
+.djGrid { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.djChip {
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text2);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.djChip:hover { border-color: var(--accent-mid); color: var(--text); }
+.djChipActive { background: var(--accent-dim); border-color: var(--accent); color: var(--accent) !important; font-weight: 600; }
+.check { font-size: 11px; }
+
+.customRow { display: flex; gap: 8px; }
+.customInput { flex: 1; }
+.addBtn { padding: 10px 16px; background: var(--surface2); border: 1px solid var(--border2); color: var(--text2); border-radius: 6px; font-size: 13px; cursor: pointer; white-space: nowrap; transition: color 0.15s; }
+.addBtn:hover { color: var(--accent); }
+
+.selectedTags { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+.selectedTag { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--accent); background: var(--accent-dim); padding: 4px 10px; border-radius: 99px; }
+.removeTag { background: none; border: none; color: var(--accent); font-size: 16px; cursor: pointer; padding: 0; line-height: 1; opacity: 0.7; }
+.removeTag:hover { opacity: 1; }
+
+.submitBtn {
+  padding: 16px;
+  background: var(--accent);
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.submitBtn:hover:not(:disabled) { opacity: 0.85; }
+.submitBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.legal { font-size: 12px; color: var(--text3); text-align: center; }
+
+/* Success */
+.successBox { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 80px 24px; gap: 16px; max-width: 480px; margin: 0 auto; }
+.successIcon { font-size: 52px; color: var(--accent); animation: fadeUp 0.4s ease both; }
+.successTitle { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--text); animation: fadeUp 0.4s 0.1s ease both; }
+.successSub { font-size: 16px; color: var(--text2); line-height: 1.6; animation: fadeUp 0.4s 0.15s ease both; }
+.followedList { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; animation: fadeUp 0.4s 0.2s ease both; }
+.followedTag { font-size: 13px; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 99px; }
