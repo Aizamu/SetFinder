@@ -11,7 +11,6 @@ export default function Nav() {
     { href: '/events', label: 'Events' },
     { href: '/djs', label: 'DJs' },
     { href: '/festivals', label: 'Festivals' },
-    { href: '/cities', label: 'Browse Cities' },
   ];
 
   return (
