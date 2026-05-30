@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['i.scdn.co', 'images.ra.co', 'bandsintown.com', 's1.ticketm.net', 'resizing.flixster.com'],
+    domains: ['i.scdn.co', 'images.ra.co', 'bandsintown.com', 's1.ticketm.net', 'resizing.flixster.com', 'media.ticketmaster.com', 's1.ticketm.net'],
   },
   env: {
     TICKETMASTER_API_KEY: process.env.TICKETMASTER_API_KEY,
