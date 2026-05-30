@@ -41,12 +41,21 @@ export default function EventCard({ event }) {
 
         <h3 className={styles.title}>{event.title}</h3>
 
-        {event.lineup && event.lineup.length > 0 && (
+        {event.lineupImages && event.lineupImages.length > 0 ? (
+          <div className={styles.lineupPhotos}>
+            {event.lineupImages.slice(0, 5).map((img, i) => (
+              <img key={i} src={img} alt={event.lineup?.[i] || ''} title={event.lineup?.[i] || ''} className={styles.lineupPhoto} />
+            ))}
+            {event.lineup?.length > 5 && (
+              <div className={styles.lineupMore}>+{event.lineup.length - 5}</div>
+            )}
+          </div>
+        ) : event.lineup && event.lineup.length > 0 ? (
           <div className={styles.lineup}>
             {event.lineup.slice(0, 5).join(' · ')}
             {event.lineup.length > 5 && ` +${event.lineup.length - 5} more`}
           </div>
-        )}
+        ) : null}
 
         <div className={styles.meta}>
           <span className={styles.metaItem}>
