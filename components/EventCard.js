@@ -41,6 +41,13 @@ export default function EventCard({ event }) {
 
         <h3 className={styles.title}>{event.title}</h3>
 
+        {event.lineup && event.lineup.length > 0 && (
+          <div className={styles.lineup}>
+            {event.lineup.slice(0, 5).join(' · ')}
+            {event.lineup.length > 5 && ` +${event.lineup.length - 5} more`}
+          </div>
+        )}
+
         <div className={styles.meta}>
           <span className={styles.metaItem}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

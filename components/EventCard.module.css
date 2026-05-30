@@ -98,6 +98,15 @@
   text-overflow: ellipsis;
 }
 
+.lineup {
+  font-size: 13px;
+  color: var(--text2);
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .meta {
   display: flex;
   flex-wrap: wrap;
