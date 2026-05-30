@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { searchEvents } from '../lib/events';
+import { searchFestivals } from '../lib/events';
 import EventCard from '../components/EventCard';
 import { US_STATES } from '../lib/constants';
 import styles from './festivals.module.css';
@@ -20,10 +20,7 @@ export default function FestivalsPage() {
   async function loadFestivals(state) {
     setLoading(true);
     try {
-      const results = await searchEvents({
-        query: 'festival',
-        state,
-      });
+      const results = await searchFestivals(state);
       setEvents(results);
     } catch {
       setEvents([]);
