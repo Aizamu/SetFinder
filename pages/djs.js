@@ -99,9 +99,11 @@ export default function DJsPage() {
                   style={{ animationDelay: `${i * 0.04}s` }}
                   onClick={() => router.push(`/events?q=${encodeURIComponent(dj.name)}`)}
                 >
-                  <div className={styles.avatar}>
-                    {(dj.name || '??').slice(0, 2).toUpperCase()}
-                  </div>
+                  {dj.imageUrl && (
+                    <div className={styles.avatar}>
+                      <img src={dj.imageUrl} alt={dj.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                    </div>
+                  )}
                   <div className={styles.djInfo}>
                     <div className={styles.djName}>{dj.name}</div>
                     <div className={styles.djGenre} style={{ color: genreColors[dj.genre] || '#888' }}>
