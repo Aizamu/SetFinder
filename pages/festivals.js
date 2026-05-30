@@ -7,37 +7,21 @@ import EventCard from '../components/EventCard';
 import { US_STATES } from '../lib/constants';
 import styles from './festivals.module.css';
 
-const MAJOR_FESTIVALS = [
-  { name: 'EDC Las Vegas', keyword: 'EDC Las Vegas', state: 'NV', month: 'May' },
-  { name: 'Electric Forest', keyword: 'Electric Forest', state: 'MI', month: 'Jun' },
-  { name: 'Lost Lands', keyword: 'Lost Lands', state: 'OH', month: 'Sep' },
-  { name: 'Forbidden Kingdom', keyword: 'Forbidden Kingdom', state: 'FL', month: 'May' },
-  { name: 'Imagine', keyword: 'Imagine Music Festival', state: 'GA', month: 'Sep' },
-  { name: 'Nocturnal Wonderland', keyword: 'Nocturnal Wonderland', state: 'CA', month: 'Sep' },
-  { name: 'Beyond Wonderland', keyword: 'Beyond Wonderland', state: 'CA', month: 'Mar' },
-  { name: 'Dreamstate', keyword: 'Dreamstate', state: 'CA', month: 'Nov' },
-  { name: 'Lights All Night', keyword: 'Lights All Night', state: 'TX', month: 'Dec' },
-  { name: 'Freaky Deaky', keyword: 'Freaky Deaky', state: 'TX', month: 'Oct' },
-  { name: 'Ubbi Dubbi', keyword: 'Ubbi Dubbi', state: 'TX', month: 'Apr' },
-  { name: 'Spring Awakening', keyword: 'Spring Awakening', state: 'IL', month: 'Jun' },
-];
-
 export default function FestivalsPage() {
   const router = useRouter();
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [stateFilter, setStateFilter] = useState('');
-  const [activeFestival, setActiveFestival] = useState('');
 
   useEffect(() => {
-    loadFestivals('', '');
+    loadFestivals('');
   }, []);
 
-  async function loadFestivals(keyword, state) {
+  async function loadFestivals(state) {
     setLoading(true);
     try {
       const results = await searchEvents({
-        query: keyword || 'festival',
+        query: 'festival',
         state,
       });
       setEvents(results);
@@ -50,14 +34,7 @@ export default function FestivalsPage() {
 
   function handleStateChange(e) {
     setStateFilter(e.target.value);
-    setActiveFestival('');
-    loadFestivals('festival', e.target.value);
-  }
-
-  function handleFestivalClick(festival) {
-    setActiveFestival(festival.name);
-    setStateFilter('');
-    loadFestivals(festival.keyword, festival.state);
+    loadFestivals(e.target.value);
   }
 
   return (
@@ -71,21 +48,7 @@ export default function FestivalsPage() {
         <div className={styles.inner}>
           <div className={styles.header}>
             <h1 className={styles.title}>US EDM Festivals</h1>
-            <p className={styles.sub}>Browse major festivals and find tickets.</p>
-          </div>
-
-          {/* Quick festival picks */}
-          <div className={styles.festGrid}>
-            {MAJOR_FESTIVALS.map(f => (
-              <button
-                key={f.name}
-                className={`${styles.festChip} ${activeFestival === f.name ? styles.festChipActive : ''}`}
-                onClick={() => handleFestivalClick(f)}
-              >
-                <span className={styles.festName}>{f.name}</span>
-                <span className={styles.festMeta}>{f.month} · {f.state}</span>
-              </button>
-            ))}
+            <p className={styles.sub}>Browse upcoming festivals and find tickets.</p>
           </div>
 
           {/* State filter */}
@@ -99,11 +62,10 @@ export default function FestivalsPage() {
                 ))}
               </select>
             </div>
-            {(stateFilter || activeFestival) && (
+            {stateFilter && (
               <button className={styles.clearBtn} onClick={() => {
                 setStateFilter('');
-                setActiveFestival('');
-                loadFestivals('', '');
+                loadFestivals('');
               }}>Clear</button>
             )}
           </div>
